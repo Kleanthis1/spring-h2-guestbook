@@ -43,33 +43,4 @@ public class GuestBookService {
         return this.guestBookEntryRepository.findOne (id);
     }
 
-    public List <GuestBookEntry> findGuestBookEntryById (Integer id) {
-        return this.guestBookEntryRepository.findGuestBookEntryById (id);
-    }
-
-    public List <String> findDistinctUsers () {
-        return this.guestBookEntryRepository.findDistinctUsers ();
-    }
-
-    public Integer findNumberOfComments () {
-        return this.guestBookEntryRepository.findAll ().size ();
-    }
-
-    public Double findAverageCommentLength () {
-        return this.guestBookEntryRepository.findAverageCommentLength ();
-    }
-
-    public List <String> findLongestComment () {
-
-        List <String> longestComments = new ArrayList <String> ();
-
-        for (GuestBookEntry c : this.guestBookEntryRepository.findAll ()) {
-            if (c.getComment ().length () == this.guestBookEntryRepository.findMaximumCommentLength ()) {
-                longestComments.add (c.getComment ());
-            }
-        }
-
-        return longestComments;
-
-    }
 }
